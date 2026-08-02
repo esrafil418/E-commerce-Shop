@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import type { Product } from "@/features/products/types";
 
+import { Container } from "@/components/common";
 import { ProductSectionActions } from "./ProductSectionActions";
 import { ProductSectionCarousel } from "./ProductSectionCarousel";
 import { ProductSectionHeader } from "./ProductSectionHeader";
@@ -29,25 +30,29 @@ export function ProductSection({
 
   return (
     <section className="space-y-6">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <ProductSectionHeader title={title} description={description} />
+      <Container>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <ProductSectionHeader title={title} description={description} />
 
-        <ProductSectionActions
-          onPrevious={() => carouselApi?.scrollPrev()}
-          onNext={() => carouselApi?.scrollNext()}
+          <ProductSectionActions
+            onPrevious={() => carouselApi?.scrollPrev()}
+            onNext={() => carouselApi?.scrollNext()}
+          />
+        </div>
+        <ProductSectionCarousel
+          products={products}
+          onApiReady={setCarouselApi}
         />
-      </div>
 
-      <ProductSectionCarousel products={products} onApiReady={setCarouselApi} />
-
-      <div className="flex justify-end">
-        <Link
-          href={href}
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-        >
-          View All →
-        </Link>
-      </div>
+        <div className="flex justify-end">
+          <Link
+            href={href}
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            View All →
+          </Link>
+        </div>
+      </Container>
     </section>
   );
 }

@@ -33,7 +33,7 @@ export function ProductSectionCarousel({
         {products.map((product) => (
           <div
             key={product.id}
-            className="min-w-0 shrink-0 basis-full pl-4 sm:basis-1/2 lg:basis-1/4"
+            className="min-w-0 pl-4 shrink-0 basis-[85%] sm:basis-[45%] md:basis-[32%] lg:basis-[24%]"
           >
             <ProductCard product={product} />
           </div>
