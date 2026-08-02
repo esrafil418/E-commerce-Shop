@@ -1,9 +1,10 @@
-import {Container} from "../common/Container";
-import {DesktopNav} from "./DesktopNav";
-import {Logo} from "./Logo";
-import {MobileNav} from "./MobileNav";
-import {SearchBar} from "./SearchBar";
-import {UserMenu} from "./UserMenu";
+import { Container } from "../common/Container";
+import { ModeToggle } from "../common/theme/ThemeToggle";
+import { DesktopNav } from "./DesktopNav";
+import { Logo } from "./Logo";
+import { MobileNav } from "./MobileNav";
+import { SearchBar } from "./SearchBar";
+import { UserMenu } from "./UserMenu";
 
 export function Header() {
   return (
@@ -21,6 +22,7 @@ export function Header() {
             <SearchBar />
             <UserMenu />
             <MobileNav />
+            <ModeToggle />
           </div>
         </div>
       </Container>
