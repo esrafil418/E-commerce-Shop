@@ -67,16 +67,16 @@ This project is being developed to practice and demonstrate:
 
 ## Current Features
 
-✅ Responsive storefront layout
-✅ Reusable Header architecture
-✅ Desktop and mobile navigation
-✅ Dark mode support
-✅ Hero section
-✅ Product carousel sections
-✅ Product cards
-✅ API data fetching with TanStack Query
-✅ Loading, error, and empty states
-✅ Responsive product layouts
+- ✅ Responsive storefront layout
+- ✅ Reusable Header architecture
+- ✅ Desktop and mobile navigation
+- ✅ Dark mode support
+- ✅ Hero section
+- ✅ Product carousel sections
+- ✅ Product cards
+- ✅ API data fetching with TanStack Query
+- ✅ Loading, error, and empty states
+- ✅ Responsive product layouts
 
 ---
 
