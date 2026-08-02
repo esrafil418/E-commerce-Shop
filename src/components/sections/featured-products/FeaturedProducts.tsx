@@ -1,9 +1,8 @@
 "use client";
 
 import { EmptyState, ErrorMessage, Loading } from "@/components/common";
-import { ProductSection } from "../product-section/ProductSection";
-
 import { useProducts } from "@/features/products/hooks/use-products";
+import { ProductSection } from "../product-section/ProductSection";
 
 export function FeaturedProducts() {
   const { data, isLoading, isError } = useProducts();
@@ -16,7 +15,9 @@ export function FeaturedProducts() {
     return <ErrorMessage message="Failed to load products" />;
   }
 
-  if (!data?.products.length) {
+  const products = data?.products.slice(0, 12) ?? [];
+
+  if (!products.length) {
     return <EmptyState title="No products found" />;
   }
 
@@ -25,7 +26,7 @@ export function FeaturedProducts() {
       <ProductSection
         title="Featured Products"
         description="Discover our latest products"
-        products={data.products.slice(0, 12)}
+        products={products}
         href="/products"
       />
     </section>

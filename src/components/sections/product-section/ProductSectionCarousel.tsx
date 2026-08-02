@@ -2,6 +2,7 @@
 
 import type { EmblaCarouselType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
+import { useEffect } from "react";
 
 import { ProductCard } from "@/features/products/components/ProductCard";
 import type { Product } from "@/features/products/types";
@@ -20,9 +21,15 @@ export function ProductSectionCarousel({
     loop: false,
   });
 
+  useEffect(() => {
+    if (emblaApi) {
+      onApiReady?.(emblaApi);
+    }
+  }, [emblaApi, onApiReady]);
+
   return (
-    <div className="overflow-hidden" ref={emblaRef}>
-      <div className="flex -ml-4">
+    <div ref={emblaRef} className="overflow-hidden">
+      <div className="-ml-4 flex">
         {products.map((product) => (
           <div
             key={product.id}

@@ -23,28 +23,27 @@ export function ProductSection({
   products,
   href = "/products",
 }: ProductSectionProps) {
-  const [emblaApi, setEmblaApi] = useState<EmblaCarouselType | null>(null);
+  const [carouselApi, setCarouselApi] = useState<EmblaCarouselType | null>(
+    null,
+  );
 
   return (
     <section className="space-y-6">
-      {/* Header */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <ProductSectionHeader title={title} description={description} />
 
         <ProductSectionActions
-          onPrevious={() => emblaApi?.scrollPrev()}
-          onNext={() => emblaApi?.scrollNext()}
+          onPrevious={() => carouselApi?.scrollPrev()}
+          onNext={() => carouselApi?.scrollNext()}
         />
       </div>
 
-      {/* Carousel */}
-      <ProductSectionCarousel products={products} onApiReady={setEmblaApi} />
+      <ProductSectionCarousel products={products} onApiReady={setCarouselApi} />
 
-      {/* View All */}
       <div className="flex justify-end">
         <Link
           href={href}
-          className="text-sm font-medium text-muted-foreground hover:text-foreground"
+          className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           View All →
         </Link>
