@@ -1,10 +1,13 @@
 export const storeNavigation = [
   {
-    title: "Products",
+    label: "Products",
     href: "/products",
   },
   {
-    title: "Categories",
+    label: "Categories",
     href: "/categories",
   },
-];
+] as const;
+
+// ? as const:
+// Treat them as readonly literal values
