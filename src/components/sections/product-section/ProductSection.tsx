@@ -1,12 +1,15 @@
 "use client";
 
 import type { EmblaCarouselType } from "embla-carousel";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
-
-import type { Product } from "@/features/products/types";
+import { useCallback, useEffect, useState } from "react";
 
 import { Container } from "@/components/common";
+import { buttonVariants } from "@/components/ui/button";
+import type { Product } from "@/features/products/types";
+import { cn } from "@/lib/utils";
+
 import { ProductSectionActions } from "./ProductSectionActions";
 import { ProductSectionCarousel } from "./ProductSectionCarousel";
 import { ProductSectionHeader } from "./ProductSectionHeader";
@@ -24,32 +27,72 @@ export function ProductSection({
   products,
   href = "/products",
 }: ProductSectionProps) {
-  const [carouselApi, setCarouselApi] = useState<EmblaCarouselType | null>(
-    null,
-  );
+  const [carouselApi, setCarouselApi] =
+    useState<EmblaCarouselType | null>(null);
+
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+
+  const updateScrollButtons = useCallback(() => {
+    if (!carouselApi) return;
+
+    setCanScrollPrev(carouselApi.canScrollPrev());
+    setCanScrollNext(carouselApi.canScrollNext());
+  }, [carouselApi]);
+
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    updateScrollButtons();
+
+    carouselApi.on("select", updateScrollButtons);
+    carouselApi.on("reInit", updateScrollButtons);
+
+    return () => {
+      carouselApi.off("select", updateScrollButtons);
+      carouselApi.off("reInit", updateScrollButtons);
+    };
+  }, [carouselApi, updateScrollButtons]);
+
 
   return (
     <section className="space-y-6">
       <Container>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <ProductSectionHeader title={title} description={description} />
+        <div className="mb-4 flex items-center justify-between">
+          <ProductSectionHeader
+            title={title}
+            description={description}
+          />
 
           <ProductSectionActions
             onPrevious={() => carouselApi?.scrollPrev()}
             onNext={() => carouselApi?.scrollNext()}
+            previousDisabled={!canScrollPrev}
+            nextDisabled={!canScrollNext}
           />
         </div>
+
+
         <ProductSectionCarousel
           products={products}
           onApiReady={setCarouselApi}
         />
 
-        <div className="flex justify-end">
+
+        <div className="mt-6 flex justify-end">
           <Link
             href={href}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className={cn(
+              buttonVariants({
+                variant: "outline",
+              }),
+              "gap-2",
+            )}
           >
-            View All →
+            View All
+            <ArrowRight className="size-4" />
           </Link>
         </div>
       </Container>

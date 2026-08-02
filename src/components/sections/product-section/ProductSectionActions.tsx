@@ -11,8 +11,8 @@ type ProductSectionActionsProps = {
 export function ProductSectionActions({
   onPrevious,
   onNext,
-  previousDisabled,
-  nextDisabled,
+  previousDisabled = false,
+  nextDisabled = false,
 }: ProductSectionActionsProps) {
   return (
     <div className="flex items-center gap-2">
