@@ -20,7 +20,7 @@ export function HeroActions() {
           size: "lg",
           variant: "outline",
           className:
-            "border-white/40 bg-transparent text-white hover:bg-white hover:text-black",
+            "border-white/40 bg-transparent text-white hover:bg-white hover:text-black transition-all duration-400",
         })}
       >
         Browse Categories

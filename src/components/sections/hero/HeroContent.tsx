@@ -5,7 +5,7 @@ export function HeroContent() {
   return (
     <HeroAnimation>
       <div className="max-w-2xl space-y-6 text-white">
-        <span className="inline-flex rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur">
+        <span className="inline-flex rounded-full bg-black/65 px-4 py-2 text-sm text-white/90 ring-1 ring-inset ring-white/20">
           New Collection
         </span>
 
