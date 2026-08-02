@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Logo() {
+export function Logo() {
   return (
     <Link
       href="/"

@@ -1,6 +1,6 @@
-import UserLinks from "./UserLinks";
+import {UserLinks} from "./UserLinks";
 
-export default function UserMenu() {
+export function UserMenu() {
   return (
     <div className="hidden items-center gap-2 lg:flex">
       <UserLinks variant="desktop" />

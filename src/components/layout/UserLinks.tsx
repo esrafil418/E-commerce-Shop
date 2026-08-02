@@ -1,13 +1,13 @@
+import { buttonVariants } from "@/components/ui/button";
+import { NavigationVariant } from "@/types/common";
 import { Heart, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
-import { buttonVariants } from "@/components/ui/button";
-
 type UserLinksProps = {
-  variant?: "desktop" | "mobile";
+  variant?: NavigationVariant;
 };
 
-export default function UserLinks({ variant = "desktop" }: UserLinksProps) {
+export function UserLinks({ variant = "desktop" }: UserLinksProps) {
   const isMobile = variant === "mobile";
   const linkClassName =
     variant === "mobile" ? "w-full justify-start" : undefined;
