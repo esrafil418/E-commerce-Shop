@@ -1,4 +1,4 @@
-import { Container } from "../common/Container";
+import { Container } from "../common/layout/Container";
 import { ModeToggle } from "../common/theme/ThemeToggle";
 import { DesktopNav } from "./DesktopNav";
 import { Logo } from "./Logo";

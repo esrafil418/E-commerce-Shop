@@ -1,4 +1,4 @@
-import { Container } from "@/components/common/Container";
+import { Container } from "@/components/common/layout/Container";
 
 import { HeroBackground } from "./HeroBackground";
 import { HeroContent } from "./HeroContent";
