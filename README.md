@@ -1,15 +1,5 @@
 # E-Commerce Shop
 
-## Project Status
-
-🚧 **This project is currently under development.**
-
-The goal of this project is to build a modern, scalable e-commerce platform using current frontend technologies and professional development practices.
-
-New features, improvements, and architectural upgrades will be added continuously as the project progresses.
-
----
-
 ## About The Project
 
 E-Commerce Shop is a full-stack e-commerce application designed to simulate a real-world online store experience.
