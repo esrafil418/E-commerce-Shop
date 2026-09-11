@@ -1,7 +1,5 @@
 # E-Commerce Shop
 
-![E-Commerce Shop Screenshot](https://i.imgpeek.com/YL1__u5QDzzY)
-
 ## Project Status
 
 🚧 **This project is currently under development.**
