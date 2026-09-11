@@ -1,143 +1,64 @@
-# E-Commerce Shop
+# Verve
 
-## About The Project
+A small Next.js storefront for practicing a clean feature-based frontend. Product data, categories, comments, and reviews come from [DummyJSON](https://dummyjson.com). The cart is stored in the browser only.
 
-E-Commerce Shop is a full-stack e-commerce application designed to simulate a real-world online store experience.
+## Pages
 
-The project focuses on building a clean, maintainable, and production-ready architecture with modern React ecosystem tools.
+| Route | What it does |
+| --- | --- |
+| `/` | Home: hero, featured products, category highlights, DummyJSON comments |
+| `/products` | Catalog with search and pagination |
+| `/products/[id]` | Product details, DummyJSON reviews, add to cart |
+| `/categories` | Category index |
+| `/categories/[slug]` | Products in a category |
+| `/cart` | Local cart (add, update quantity, remove) |
+| `/about` | Project notes |
 
-The application includes a customer-facing storefront and is planned to support dashboard functionality for managing products, users, orders, and other business operations.
+## Stack
 
----
+- Next.js App Router, React, TypeScript
+- Tailwind CSS and shadcn/ui
+- TanStack Query + Axios for DummyJSON
+- Zustand (persisted cart)
+- next-themes for dark mode
 
-## Main Goals
+## DummyJSON endpoints used
 
-This project is being developed to practice and demonstrate:
+- `GET /products` and `GET /products/search`
+- `GET /products/:id` (includes `reviews`)
+- `GET /products/categories`
+- `GET /products/category/:slug`
+- `GET /comments`
 
-- Building scalable Next.js applications
-- Creating reusable and maintainable React components
-- Designing professional UI systems
-- Working with server state management
-- Handling API communication
-- Building responsive layouts
-- Implementing modern e-commerce features
-- Following real-world project architecture patterns
-
----
-
-## Technologies
-
-### Frontend
-
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- shadcn/ui
-- TanStack Query
-- Embla Carousel
-- Lucide React
-
-### State Management
-
-- TanStack Query for server state
-- Zustand / other client state solutions when needed
-
-### Planned Backend
-
-- Node.js
-- Express
-- Database integration
-- Authentication system
-- Product and order management APIs
-
----
-
-## Current Features
-
-- ✅ Responsive storefront layout
-- ✅ Reusable Header architecture
-- ✅ Desktop and mobile navigation
-- ✅ Dark mode support
-- ✅ Hero section
-- ✅ Product carousel sections
-- ✅ Product cards
-- ✅ API data fetching with TanStack Query
-- ✅ Loading, error, and empty states
-- ✅ Responsive product layouts
-
----
-
-## Planned Features
-
-- User authentication
-- Product details pages
-- Shopping cart functionality
-- Wishlist system
-- Checkout flow
-- User profile
-- Order management
-- Admin dashboard
-- Product management
-- Reviews and ratings
-- Search and filtering
-- Payment integration
-
----
-
-## Project Architecture
-
-The project follows a feature-based architecture:
-
-```graph
-src
-├── app
-├── components
-├── features
-├── hooks
-├── lib
-├── providers
-├── config
-├── constants
-└── types
-```
-
-The goal of this structure is to keep the codebase organized, scalable, and easy to maintain as the application grows.
-
----
-
-## Development
-
-Install dependencies:
+## Setup
 
 ```bash
 npm install
-```
-
-Run the development server:
-
-```bash
 npm run dev
 ```
 
-Build the project:
+Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run build
+npm run start
 ```
 
----
+## Project layout
 
-## Learning Purpose
+```
+src
+├── app/(store)     # routes and layouts
+├── components      # shared UI, layout, page sections
+├── features        # products, categories, comments, cart
+├── lib             # axios, query client, helpers
+├── providers       # React Query, theme
+├── config          # navigation
+└── constants       # API paths
+```
 
-This project is not only a shopping application. It is also a continuous learning project focused on improving skills in:
+Keep API calls, query keys, and types inside the matching `features/*` folder. Shared layout and UI stay in `components`.
 
-- Advanced React patterns
-- Next.js App Router
-- TypeScript
-- Component architecture
-- API integration
-- UI/UX implementation
-- Professional frontend development workflow
+## Scope
 
-The project will continue evolving as new concepts and technologies are explored.
+This is intentionally a mini shop: browse, search, read reviews/comments, and use a local cart. There is no auth, checkout, or admin dashboard.

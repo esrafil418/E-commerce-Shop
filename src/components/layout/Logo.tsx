@@ -6,7 +6,7 @@ export function Logo() {
       href="/"
       className="text-2xl font-bold tracking-tight transition-colors hover:text-primary"
     >
-      Shop.
+      Verve
     </Link>
   );
 }

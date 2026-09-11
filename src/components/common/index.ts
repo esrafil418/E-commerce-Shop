@@ -1,4 +1,5 @@
 export { Container } from "./layout/Container";
+export { PageHeader } from "./layout/PageHeader";
 export { SectionHeader } from "./headers/SectionHeader";
 
 // ? feedback

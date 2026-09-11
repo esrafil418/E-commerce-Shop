@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { Container } from "../common/layout/Container";
 import { ModeToggle } from "../common/theme/ThemeToggle";
 import { DesktopNav } from "./DesktopNav";
@@ -8,18 +10,18 @@ import { UserMenu } from "./UserMenu";
 
 export function Header() {
   return (
-    <header className="border-b bg-background">
+    <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
       <Container>
         <div className="flex h-16 items-center justify-between">
-          {/* left side  */}
           <div className="flex items-center gap-8">
             <Logo />
             <DesktopNav />
           </div>
 
-          {/* right side  */}
           <div className="flex items-center gap-4">
-            <SearchBar />
+            <Suspense>
+              <SearchBar />
+            </Suspense>
             <UserMenu />
             <MobileNav />
             <ModeToggle />

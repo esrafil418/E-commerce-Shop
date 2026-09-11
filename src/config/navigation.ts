@@ -7,7 +7,8 @@ export const storeNavigation = [
     label: "Categories",
     href: "/categories",
   },
+  {
+    label: "About",
+    href: "/about",
+  },
 ] as const;
-
-// ? as const:
-// Treat them as readonly literal values

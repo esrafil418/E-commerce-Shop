@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { formatPrice } from "@/lib/formatPrice";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -51,7 +52,7 @@ export function ProductCard({ product }: ProductCardProps) {
               <p className="text-sm text-red-600">Out of stock</p>
             )}
           </div>
-          <p className="font-bold">${product.price}</p>
+          <p className="font-bold">{formatPrice(product.price)}</p>
         </div>
       </article>
     </Link>
